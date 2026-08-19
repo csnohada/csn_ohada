@@ -295,3 +295,6 @@ require_type_annotated_api_methods = True
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+after_install = "csn_ohada.install.after_install"
+after_migrate = "csn_ohada.install.after_migrate"
