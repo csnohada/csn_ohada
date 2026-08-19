@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ptba",
+  "line_code",
+  "activity_name",
+  "sector",
+  "emo",
+  "zone",
+  "source_financement",
+  "convention",
+  "budget_account",
+  "cost_center",
+  "start_date",
+  "end_date",
+  "currency",
+  "quantity",
+  "unit_cost",
+  "budget_amount",
+  "justification",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "PTBA-LIG-.YYYY.-.#####",
+   "default": "PTBA-LIG-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ptba",
+   "fieldtype": "Link",
+   "label": "PTBA",
+   "options": "CSN PTBA",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "line_code",
+   "fieldtype": "Data",
+   "label": "Code de ligne",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "activity_name",
+   "fieldtype": "Data",
+   "label": "Activité",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sector",
+   "fieldtype": "Link",
+   "label": "Secteur humanitaire",
+   "options": "CSN Secteur Humanitaire",
+   "reqd": 1
+  },
+  {
+   "fieldname": "emo",
+   "fieldtype": "Link",
+   "label": "Entité de mise en œuvre",
+   "options": "CSN EMO",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone d'intervention",
+   "options": "CSN Zone Intervention",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_financement",
+   "fieldtype": "Link",
+   "label": "Source de financement",
+   "options": "CSN Source Financement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "convention",
+   "fieldtype": "Link",
+   "label": "Convention",
+   "options": "CSN Convention Financement"
+  },
+  {
+   "fieldname": "budget_account",
+   "fieldtype": "Link",
+   "label": "Compte budgétaire OHADA",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Centre de coûts",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Début de l'activité",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "Fin de l'activité",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantité",
+   "default": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_cost",
+   "fieldtype": "Currency",
+   "label": "Coût unitaire",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_amount",
+   "fieldtype": "Currency",
+   "label": "Montant budgété",
+   "options": "currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Small Text",
+   "label": "Justification et hypothèses de coût"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Désactivée",
+   "default": "0"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Ligne PTBA",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Gestionnaire PTBA",
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Directeur Général",
+   "read": 1,
+   "print": 1,
+   "report": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Conseil Administration",
+   "read": 1,
+   "print": 1,
+   "report": 1
+  }
+ ],
+ "search_fields": "line_code,activity_name,ptba,sector,emo",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "activity_name",
+ "track_changes": 1
+}
