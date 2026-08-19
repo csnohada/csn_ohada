@@ -1,0 +1,184 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:code",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "convention_name",
+  "company",
+  "source_financement",
+  "bailleur",
+  "signature_date",
+  "start_date",
+  "end_date",
+  "currency",
+  "approved_amount",
+  "reporting_frequency",
+  "status",
+  "purpose",
+  "agreement_file",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Référence de la convention",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "convention_name",
+   "fieldtype": "Data",
+   "label": "Intitulé",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Société",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_financement",
+   "fieldtype": "Link",
+   "label": "Source de financement",
+   "options": "CSN Source Financement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "bailleur",
+   "fieldtype": "Link",
+   "label": "Bailleur",
+   "options": "CSN Bailleur"
+  },
+  {
+   "fieldname": "signature_date",
+   "fieldtype": "Date",
+   "label": "Date de signature"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Date de début",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "Date de fin",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "label": "Montant approuvé",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reporting_frequency",
+   "fieldtype": "Select",
+   "label": "Fréquence de rapportage",
+   "options": "Mensuelle\nTrimestrielle\nSemestrielle\nAnnuelle\nSelon échéancier",
+   "default": "Trimestrielle"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Brouillon\nActive\nSuspendue\nClôturée\nAnnulée",
+   "default": "Brouillon",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Text",
+   "label": "Objet de la convention"
+  },
+  {
+   "fieldname": "agreement_file",
+   "fieldtype": "Attach",
+   "label": "Convention signée"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Désactivée",
+   "default": "0"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Convention Financement",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Gestionnaire PTBA",
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "code,convention_name,bailleur,source_financement,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "convention_name",
+ "track_changes": 1
+}
