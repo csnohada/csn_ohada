@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:code",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "bailleur_name",
+  "bailleur_type",
+  "country",
+  "tax_id",
+  "email",
+  "phone",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "bailleur_name",
+   "fieldtype": "Data",
+   "label": "Nom du bailleur",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "bailleur_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "État congolais\nInstitution publique\nOrganisation internationale\nAgence des Nations Unies\nONG\nEntreprise\nParticulier\nAutre",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Pays",
+   "options": "Country"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Identifiant fiscal"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Adresse électronique",
+   "options": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Téléphone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Désactivé",
+   "default": "0",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Bailleur",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Gestionnaire PTBA",
+   "read": 1,
+   "report": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "code,bailleur_name,bailleur_type",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "bailleur_name",
+ "track_changes": 1
+}
