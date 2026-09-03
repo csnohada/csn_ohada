@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "expense_request",
+  "company",
+  "engagement_date",
+  "ptba_line",
+  "supplier",
+  "currency",
+  "exchange_rate",
+  "committed_amount",
+  "available_before",
+  "available_after",
+  "purchase_order",
+  "contract_reference",
+  "supporting_document",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "ENG-.YYYY.-.#####",
+   "default": "ENG-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expense_request",
+   "fieldtype": "Link",
+   "label": "Demande de dépense",
+   "options": "CSN Demande Depense",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "engagement_date",
+   "fieldtype": "Date",
+   "label": "Date d'engagement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ptba_line",
+   "fieldtype": "Link",
+   "label": "Ligne budgétaire PTBA",
+   "options": "CSN Ligne PTBA",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Fournisseur",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Taux de change",
+   "default": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "committed_amount",
+   "fieldtype": "Currency",
+   "label": "Montant engagé",
+   "options": "currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "available_before",
+   "fieldtype": "Currency",
+   "label": "Disponible avant engagement",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "available_after",
+   "fieldtype": "Currency",
+   "label": "Disponible après engagement",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Bon de commande",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "contract_reference",
+   "fieldtype": "Data",
+   "label": "Référence du contrat"
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach",
+   "label": "Pièce d'engagement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Brouillon\nEngagé\nPartiellement liquidé\nLiquidé\nPartiellement payé\nPayé\nAnnulé",
+   "default": "Brouillon",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Rectification de",
+   "options": "CSN Engagement Budgetaire",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Engagement Budgetaire",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "delete": 1,
+   "share": 1,
+   "email": 1
+  },
+  {
+   "role": "CSN Gestionnaire Budgetaire",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "CSN Controleur Interne",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "search_fields": "expense_request,ptba_line,supplier,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "title_field": "expense_request"
+}

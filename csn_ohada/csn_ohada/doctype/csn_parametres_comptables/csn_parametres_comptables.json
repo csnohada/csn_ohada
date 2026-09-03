@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "accounting_primary_framework",
+  "primary_framework_version",
+  "secondary_reporting_framework",
+  "enable_dual_reporting",
+  "effective_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique CSN-GHC",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "accounting_primary_framework",
+   "fieldtype": "Link",
+   "label": "ACCOUNTING_PRIMARY_FRAMEWORK",
+   "options": "CSN Referentiel Comptable"
+  },
+  {
+   "fieldname": "primary_framework_version",
+   "fieldtype": "Link",
+   "label": "Version principale active",
+   "options": "CSN Version Referentiel Comptable"
+  },
+  {
+   "fieldname": "secondary_reporting_framework",
+   "fieldtype": "Link",
+   "label": "SECONDARY_REPORTING_FRAMEWORK",
+   "options": "CSN Referentiel Comptable"
+  },
+  {
+   "fieldname": "enable_dual_reporting",
+   "fieldtype": "Check",
+   "label": "Activer CSNGHC_DUAL_REPORTING",
+   "default": "0"
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Date de prise d'effet"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Parametres Comptables",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "CSN Administrateur Referentiel",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1
+}

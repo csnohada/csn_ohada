@@ -12,7 +12,7 @@ use_json_request_body = True
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -172,13 +172,36 @@ use_json_request_body = True
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Journal Entry": {
+		"validate": "csn_ohada.accounting_engine.validate_journal_entry",
+		"before_submit": "csn_ohada.accounting_engine.before_submit_journal_entry",
+		"on_submit": "csn_ohada.accounting_engine.on_submit_journal_entry",
+		"before_cancel": "csn_ohada.accounting_engine.prevent_posted_entry_cancellation",
+	},
+	"Account": {
+		"validate": "csn_ohada.accounting_engine.validate_account_mapping",
+	},
+	"Purchase Order": {
+		"validate": "csn_ohada.budget_engine.validate_purchase_order",
+	},
+	"Purchase Invoice": {
+		"validate": "csn_ohada.budget_engine.validate_purchase_invoice",
+		"on_submit": "csn_ohada.budget_engine.post_purchase_invoice",
+		"on_cancel": "csn_ohada.budget_engine.cancel_purchase_invoice",
+	},
+	"Payment Entry": {
+		"validate": [
+			"csn_ohada.budget_engine.validate_payment_entry",
+			"csn_ohada.treasury_engine.validate_payment_treasury",
+		],
+		"on_submit": "csn_ohada.budget_engine.post_payment_entry",
+		"on_cancel": "csn_ohada.budget_engine.cancel_payment_entry",
+	},
+	"Supplier": {
+		"validate": "csn_ohada.budget_engine.validate_supplier",
+	},
+}
 
 # Scheduled Tasks
 # ---------------

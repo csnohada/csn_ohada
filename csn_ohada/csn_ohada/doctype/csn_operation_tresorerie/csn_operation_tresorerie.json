@@ -1,0 +1,248 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "treasury_account",
+  "company",
+  "transaction_date",
+  "settlement_date",
+  "operation_type",
+  "channel",
+  "provider_transaction_id",
+  "gross_amount",
+  "fee_amount",
+  "net_amount",
+  "original_currency",
+  "settlement_currency",
+  "exchange_rate",
+  "amount_cdf",
+  "exchange_rate_source",
+  "exchange_rate_date",
+  "payment_entry",
+  "bank_transaction",
+  "supporting_document",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "OT-.YYYY.-.######",
+   "default": "OT-.YYYY.-.######",
+   "reqd": 1
+  },
+  {
+   "fieldname": "treasury_account",
+   "fieldtype": "Link",
+   "label": "Compte de trésorerie",
+   "options": "CSN Compte Tresorerie",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Date de transaction",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "settlement_date",
+   "fieldtype": "Date",
+   "label": "Date de règlement"
+  },
+  {
+   "fieldname": "operation_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Encaissement\nDécaissement\nVirement interne\nDépôt\nRetrait\nFrais\nRemboursement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Canal",
+   "options": "Banque\nEspèces\nMobile Money\nCarte\nPasserelle\nPaiement électronique",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider_transaction_id",
+   "fieldtype": "Data",
+   "label": "Identifiant fournisseur",
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "gross_amount",
+   "fieldtype": "Currency",
+   "label": "Montant brut",
+   "options": "original_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Frais",
+   "options": "original_currency",
+   "default": "0"
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Montant net",
+   "options": "original_currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "original_currency",
+   "fieldtype": "Link",
+   "label": "Devise d'origine",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "settlement_currency",
+   "fieldtype": "Link",
+   "label": "Devise de règlement",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Taux de change",
+   "default": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount_cdf",
+   "fieldtype": "Currency",
+   "label": "Montant en CDF",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exchange_rate_source",
+   "fieldtype": "Data",
+   "label": "Source du taux"
+  },
+  {
+   "fieldname": "exchange_rate_date",
+   "fieldtype": "Date",
+   "label": "Date du taux"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Écriture de paiement",
+   "options": "Payment Entry"
+  },
+  {
+   "fieldname": "bank_transaction",
+   "fieldtype": "Link",
+   "label": "Transaction bancaire",
+   "options": "Bank Transaction"
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach",
+   "label": "Pièce justificative"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Importée\nConfirmée\nRapprochée\nComptabilisée\nAnnulée",
+   "default": "Importée",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Rectification de",
+   "options": "CSN Operation Tresorerie",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Operation Tresorerie",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Trésorier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "search_fields": "provider_transaction_id,treasury_account,status,payment_entry",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "title_field": "provider_transaction_id"
+}

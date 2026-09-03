@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:code",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "treasury_name",
+  "company",
+  "treasury_type",
+  "account",
+  "bank_account",
+  "currency",
+  "provider",
+  "account_identifier",
+  "organisational_unit",
+  "responsible_user",
+  "reconciliation_tolerance",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "treasury_name",
+   "fieldtype": "Data",
+   "label": "Compte de trésorerie",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "treasury_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Banque\nCaisse\nMobile Money\nPaiement électronique\nCollecte\nProjet\nBailleur\nCampagne\nTransit",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Compte comptable",
+   "options": "Account",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Compte bancaire ERPNext",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Data",
+   "label": "Banque ou opérateur"
+  },
+  {
+   "fieldname": "account_identifier",
+   "fieldtype": "Data",
+   "label": "Numéro ou identifiant du compte"
+  },
+  {
+   "fieldname": "organisational_unit",
+   "fieldtype": "Link",
+   "label": "Unité responsable",
+   "options": "CSN Unite Organisationnelle"
+  },
+  {
+   "fieldname": "responsible_user",
+   "fieldtype": "Link",
+   "label": "Responsable",
+   "options": "User"
+  },
+  {
+   "fieldname": "reconciliation_tolerance",
+   "fieldtype": "Currency",
+   "label": "Tolérance de rapprochement",
+   "options": "currency",
+   "default": "0"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Désactivé",
+   "default": "0",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Compte Tresorerie",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Trésorier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "search_fields": "code,treasury_name,treasury_type,account_identifier",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "title_field": "treasury_name"
+}

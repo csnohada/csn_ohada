@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "posting_date",
+  "company",
+  "ptba_line",
+  "movement_type",
+  "amount",
+  "currency",
+  "reference_doctype",
+  "reference_name",
+  "engagement",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "MB-.YYYY.-.######",
+   "default": "MB-.YYYY.-.######",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ptba_line",
+   "fieldtype": "Link",
+   "label": "Ligne budgétaire PTBA",
+   "options": "CSN Ligne PTBA",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "movement_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Engagement\nDégagement\nLiquidation\nAnnulation liquidation\nPaiement\nAnnulation paiement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Montant",
+   "options": "currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Type de pièce",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Pièce",
+   "options": "reference_doctype",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "CSN Engagement Budgetaire"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Observations"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Mouvement Budgetaire",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "delete": 1,
+   "share": 1,
+   "email": 1
+  },
+  {
+   "role": "CSN Gestionnaire Budgetaire",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "search_fields": "ptba_line,movement_type,reference_name,engagement",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "title_field": "reference_name"
+}

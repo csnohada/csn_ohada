@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "reconciliation_date",
+  "treasury_operation",
+  "payment_entry",
+  "statement_amount",
+  "accounting_amount",
+  "difference_amount",
+  "currency",
+  "justification",
+  "initiated_by",
+  "approved_by",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "RAP-.YYYY.-.######",
+   "default": "RAP-.YYYY.-.######",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reconciliation_date",
+   "fieldtype": "Date",
+   "label": "Date de rapprochement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "treasury_operation",
+   "fieldtype": "Link",
+   "label": "Opération de trésorerie",
+   "options": "CSN Operation Tresorerie",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Écriture de paiement",
+   "options": "Payment Entry",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "statement_amount",
+   "fieldtype": "Currency",
+   "label": "Montant du relevé",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accounting_amount",
+   "fieldtype": "Currency",
+   "label": "Montant comptable",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "difference_amount",
+   "fieldtype": "Currency",
+   "label": "Écart",
+   "options": "currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Small Text",
+   "label": "Justification de l'écart"
+  },
+  {
+   "fieldname": "initiated_by",
+   "fieldtype": "Link",
+   "label": "Initié par",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approuvé par",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Brouillon\nRapproché\nAnnulé",
+   "default": "Brouillon",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Rectification de",
+   "options": "CSN Rapprochement Tresorerie",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Rapprochement Tresorerie",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Trésorier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Comptable",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "search_fields": "treasury_operation,payment_entry,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "title_field": "treasury_operation"
+}

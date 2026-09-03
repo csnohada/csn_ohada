@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:code",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "journal_name",
+  "company",
+  "journal_type",
+  "naming_series",
+  "default_debit_account",
+  "default_credit_account",
+  "requires_supporting_document",
+  "requires_review",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code du journal",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "journal_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intitulé du journal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "journal_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type de journal",
+   "options": "Général\nBanque\nCaisse\nAchats\nVentes\nPaie\nOuverture\nRégularisation\nExtourne",
+   "reqd": 1
+  },
+  {
+   "default": "CSN-JE-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "label": "Série de numérotation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_debit_account",
+   "fieldtype": "Link",
+   "label": "Compte débiteur par défaut",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_credit_account",
+   "fieldtype": "Link",
+   "label": "Compte créditeur par défaut",
+   "options": "Account"
+  },
+  {
+   "default": "1",
+   "fieldname": "requires_supporting_document",
+   "fieldtype": "Check",
+   "label": "Pièce justificative obligatoire"
+  },
+  {
+   "default": "1",
+   "fieldname": "requires_review",
+   "fieldtype": "Check",
+   "label": "Validation par une seconde personne"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Désactivé"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Journal Comptable",
+ "naming_rule": "By fieldname",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSN Chef Comptabilite",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSN Directeur Financier",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSN Comptable"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSN Auditeur Interne"
+  }
+ ],
+ "search_fields": "code,journal_name,journal_type,company",
+ "sort_field": "code",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "journal_name",
+ "track_changes": 1
+}

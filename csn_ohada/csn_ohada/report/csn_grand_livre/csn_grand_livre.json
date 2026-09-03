@@ -1,0 +1,20 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "disabled": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "module": "CSN OHADA",
+ "name": "CSN Grand Livre",
+ "prepared_report": 0,
+ "ref_doctype": "GL Entry",
+ "report_name": "CSN Grand Livre",
+ "report_type": "Script Report",
+ "roles": [
+  {"role": "System Manager"},
+  {"role": "CSN Comptable"},
+  {"role": "CSN Chef Comptabilite"},
+  {"role": "CSN Directeur Financier"},
+  {"role": "CSN Auditeur Interne"}
+ ]
+}

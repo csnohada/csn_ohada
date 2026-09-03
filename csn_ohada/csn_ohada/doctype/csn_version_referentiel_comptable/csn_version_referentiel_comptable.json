@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "framework",
+  "version_label",
+  "valid_from",
+  "valid_to",
+  "status",
+  "legal_reference",
+  "source_document",
+  "source_checksum",
+  "framework_admin_validator",
+  "finance_validator",
+  "approving_authority",
+  "approval_date",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code de version",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "framework",
+   "fieldtype": "Link",
+   "label": "Référentiel",
+   "options": "CSN Referentiel Comptable",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "version_label",
+   "fieldtype": "Data",
+   "label": "Version officielle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valide à partir du",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valide jusqu'au"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Brouillon\nImportée\nValidée\nApprouvée\nActive\nInactive",
+   "default": "Brouillon",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "legal_reference",
+   "fieldtype": "Small Text",
+   "label": "Référence juridique ou administrative",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_document",
+   "fieldtype": "Attach",
+   "label": "Plan officiel importé",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_checksum",
+   "fieldtype": "Data",
+   "label": "Empreinte SHA-256 du fichier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "framework_admin_validator",
+   "fieldtype": "Link",
+   "label": "Validateur du référentiel",
+   "options": "User"
+  },
+  {
+   "fieldname": "finance_validator",
+   "fieldtype": "Link",
+   "label": "Responsable financier validateur",
+   "options": "User"
+  },
+  {
+   "fieldname": "approving_authority",
+   "fieldtype": "Link",
+   "label": "Autorité approbatrice",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Date d'approbation"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Observations"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Version Referentiel Comptable",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "CSN Administrateur Referentiel",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "CSN Direction Generale",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:code",
+ "naming_rule": "By fieldname",
+ "search_fields": "code,framework,version_label,status",
+ "title_field": "version_label"
+}

@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - CSN
+      - main
   pull_request:
 
 concurrency:
@@ -84,6 +84,10 @@ jobs:
         run: |
           pip install frappe-bench
           bench init --skip-redis-config-generation --skip-assets --python "$(which python)" ~/frappe-bench
+
+      - name: Install ERPNext dependency
+        working-directory: /home/runner/frappe-bench
+        run: bench get-app erpnext https://github.com/frappe/erpnext --branch develop
 
       - name: Install
         working-directory: /home/runner/frappe-bench

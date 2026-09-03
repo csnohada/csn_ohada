@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "subject",
+  "company",
+  "request_date",
+  "requester",
+  "organisational_unit",
+  "ptba_line",
+  "supplier",
+  "currency",
+  "requested_amount",
+  "purpose",
+  "supporting_document",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Série",
+   "options": "DD-.YYYY.-.#####",
+   "default": "DD-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Objet de la dépense",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Entité juridique",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Date de la demande",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "requester",
+   "fieldtype": "Link",
+   "label": "Demandeur",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "organisational_unit",
+   "fieldtype": "Link",
+   "label": "Unité organisationnelle",
+   "options": "CSN Unite Organisationnelle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ptba_line",
+   "fieldtype": "Link",
+   "label": "Ligne budgétaire PTBA",
+   "options": "CSN Ligne PTBA",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Fournisseur pressenti",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Devise",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requested_amount",
+   "fieldtype": "Currency",
+   "label": "Montant demandé",
+   "options": "currency",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Text Editor",
+   "label": "Justification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supporting_document",
+   "fieldtype": "Attach",
+   "label": "Pièce justificative",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Statut",
+   "options": "Brouillon\nSoumise\nApprouvée\nRejetée\nEngagée\nClôturée",
+   "default": "Brouillon",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Rectification de",
+   "options": "CSN Demande Depense",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "CSN OHADA",
+ "name": "CSN Demande Depense",
+ "naming_rule": "By Naming Series",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "delete": 1,
+   "share": 1,
+   "email": 1
+  },
+  {
+   "role": "CSN Demandeur",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1
+  },
+  {
+   "role": "CSN Gestionnaire Budgetaire",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "CSN Directeur Financier",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "create": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "CSN Auditeur Interne",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "search_fields": "subject,requester,ptba_line,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "is_submittable": 1,
+ "title_field": "subject"
+}
