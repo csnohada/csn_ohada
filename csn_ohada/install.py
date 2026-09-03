@@ -123,6 +123,32 @@ def ensure_master_data():
     frappe.db.commit()
 
 
+def ensure_finance_home():
+    """Make the existing Finance workspace the default desk landing page."""
+    workspace = "Finance CSN-GHC"
+    if not frappe.db.exists("Workspace", workspace):
+        return
+
+    if frappe.get_meta("System Settings").has_field("default_app"):
+        frappe.db.set_single_value("System Settings", "default_app", "csn_ohada")
+
+    user_meta = frappe.get_meta("User")
+    values = {}
+    if user_meta.has_field("default_workspace"):
+        values["default_workspace"] = workspace
+    if user_meta.has_field("default_app"):
+        values["default_app"] = "csn_ohada"
+    if not values:
+        return
+
+    for user in frappe.get_all(
+        "User",
+        filters={"enabled": 1, "user_type": "System User"},
+        pluck="name",
+    ):
+        frappe.db.set_value("User", user, values, update_modified=False)
+
+
 def ensure_accounting_custom_fields():
     custom_fields = {
         "Journal Entry": [
@@ -384,9 +410,11 @@ def after_install():
     ensure_roles()
     ensure_accounting_custom_fields()
     ensure_master_data()
+    ensure_finance_home()
 
 
 def after_migrate():
     ensure_roles()
     ensure_accounting_custom_fields()
     ensure_master_data()
+    ensure_finance_home()

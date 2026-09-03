@@ -1,5 +1,5 @@
 app_name = "csn_ohada"
-app_title = "CSN OHADA"
+app_title = "Finance CSN-GHC"
 app_publisher = "CSN-GHC"
 app_description = "Gestion financière, budgétaire et comptable SYSCOHADA de la CSN-GHC"
 app_email = "daf@finance-csnghc.cloud"
@@ -15,15 +15,14 @@ use_json_request_body = True
 required_apps = ["erpnext"]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "csn_ohada",
-# 		"logo": "/assets/csn_ohada/logo.png",
-# 		"title": "CSN OHADA",
-# 		"route": "/csn_ohada",
-# 		"has_permission": "csn_ohada.api.permission.has_app_permission",
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "csn_ohada",
+		"logo": "/assets/csn_ohada/images/csn-ghc-icon.png",
+		"title": "Finance CSN-GHC",
+		"route": "/app/finance-csn-ghc",
+	}
+]
 
 # Companion apps that extend a host app (instead of taking their own apps-screen icon) can pin
 # their workspaces into the host app's workspace dock (rail) with this hook. Declaring it keeps
